@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
-public class RecipeTests {
+public class RecipeTest {
     @Test void test() {
         // ARRANGE
         String title = "Zesty Lemon Chia Pudding";
