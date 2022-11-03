@@ -1,9 +1,11 @@
 package dev.jimstockwell.mealPlanner;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode
+@AllArgsConstructor
 public class Qty {
-    public Qty(String uom, double qty) {
-    }
+    final String uom;
+    final double qty;
 }

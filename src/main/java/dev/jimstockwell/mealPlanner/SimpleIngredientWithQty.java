@@ -1,8 +1,8 @@
 package dev.jimstockwell.mealPlanner;
 
 public class SimpleIngredientWithQty {
-    private String ingredient;
-    private Qty qty;
+    private final String ingredient;
+    private final Qty qty;
 
     public SimpleIngredientWithQty(String ingredient, Qty qty) {
         this.ingredient = ingredient;
