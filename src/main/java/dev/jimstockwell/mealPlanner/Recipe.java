@@ -1,6 +1,7 @@
 package dev.jimstockwell.mealPlanner;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Recipe {
     private final String title;
@@ -44,5 +45,9 @@ public class Recipe {
 
     public Qty getIngredientQty(int i) {
         return listOfIngredientsWithQuantities.get(i).getQty();
+    }
+
+    public Stream<OrderHelperRow> stream() {
+        return null; // TODO
     }
 }

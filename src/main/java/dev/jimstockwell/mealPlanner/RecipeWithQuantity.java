@@ -10,14 +10,20 @@ import java.util.stream.Stream;
 @Getter
 public class RecipeWithQuantity {
     private final Recipe recipe;
-    private final double qty;
+    private final Number number;
 
-    public RecipeWithQuantity(Recipe recipe, double qty) {
+    public RecipeWithQuantity(Recipe recipe, Number number) {
         this.recipe = recipe;
-        this.qty = qty;
+        this.number = number;
     }
 
     public Stream<OrderHelperRow> multipliedOrderHelperRowStream() {
-        throw new UnsupportedOperationException(); // TODO
+        return Stream.empty(); // TODO
+//        return recipe.stream().map(x->new OrderHelperRow(x.ingredient(),
+//                                                         x.uom(),
+//                                                         x.measure()*number.doubleValue(),
+//                                                         x.recipeName(),
+//                                                         x.reference()));
+
     }
 }

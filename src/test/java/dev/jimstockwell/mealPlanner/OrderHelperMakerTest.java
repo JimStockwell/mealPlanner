@@ -1,6 +1,5 @@
 package dev.jimstockwell.mealPlanner;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.Period;
@@ -10,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrderHelperMakerTest {
     @Test
-    @Disabled // this is our "acceptance test".  Keep it on hold while we make finer grain tests
+//    @Disabled // this is our "acceptance test".  Keep it on hold while we make finer grain tests
     void test() {
         // ARRANGE
         final String title1 = "title1";
@@ -40,22 +39,24 @@ public class OrderHelperMakerTest {
         OrderHelper orderHelper = new OrderHelperMaker().apply(recipePlan);
 
         // ASSERT
-        assertEquals(4,orderHelper.getSize());
-        assertEquals("ing1", orderHelper.getIngredient(0));
-        assertEquals("ing1", orderHelper.getIngredient(1));
-        assertEquals("ing2", orderHelper.getIngredient(2));
-        assertEquals("ing3", orderHelper.getIngredient(3));
-        assertEquals("cups",orderHelper.getUom(0));
-        assertEquals("teaspoons",orderHelper.getUom(1));
-        assertEquals("cups",orderHelper.getUom(2));
-        assertEquals("cups",orderHelper.getUom(3));
-        assertEquals(2.1*2,orderHelper.getQty(0));
-        assertEquals(1.1*1,orderHelper.getQty(1));
-        assertEquals(1.2*1,orderHelper.getQty(2));
-        assertEquals(2.2*2,orderHelper.getQty(3));
-        assertEquals("recipe2", orderHelper.getRecipe(0));
-        assertEquals("recipe1",orderHelper.getRecipe(1));
-        assertEquals("recipe1",orderHelper.getRecipe(2));
-        assertEquals("recipe2",orderHelper.getRecipe(3));
+        OrderHelperRow[] rows =
+                orderHelper.stream().toArray(OrderHelperRow[]::new);
+        assertEquals(4,rows.length);
+        assertEquals("ing1", rows[0].ingredient());
+        assertEquals("ing1", rows[1].ingredient());
+        assertEquals("ing2", rows[2].ingredient());
+        assertEquals("ing3", rows[3].ingredient());
+        assertEquals("cups",rows[0].uom());
+        assertEquals("teaspoons",rows[1].uom());
+        assertEquals("cups",rows[2].uom());
+        assertEquals("cups",rows[3].uom());
+        assertEquals(2.1*2,rows[0].measure(),.0001);
+        assertEquals(1.1*1,rows[1].measure(),.0001);
+        assertEquals(1.2*1,rows[2].measure(),.0001);
+        assertEquals(2.2*2,rows[3].measure(),.0001);
+        assertEquals("recipe2", rows[0].recipeName());
+        assertEquals("recipe1",rows[1].recipeName());
+        assertEquals("recipe1",rows[2].recipeName());
+        assertEquals("recipe2",rows[3].recipeName());
     }
 }
