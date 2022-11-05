@@ -1,5 +1,6 @@
 package dev.jimstockwell.mealPlanner;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.Period;
@@ -9,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrderHelperMakerTest {
     @Test
+    @Disabled // this is our "acceptance test".  Keep it on hold while we make finer grain tests
     void test() {
         // ARRANGE
         final String title1 = "title1";
