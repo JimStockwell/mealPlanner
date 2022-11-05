@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -64,6 +65,35 @@ class RecipePlanTest {
         assertEquals(2, orderHelperRows.length);
         assertEquals("ing1", orderHelperRows[0].ingredient());
         assertEquals("ing2", orderHelperRows[1].ingredient());
+    }
+    @Test
+    void sorted() {
+        // ARRANGE
+        RecipeWithQuantity mockedFirstRecipeWithQuantity = Mockito.mock(RecipeWithQuantity.class);
+        RecipeWithQuantity mockedSecondRecipeWithQuantity = Mockito.mock(RecipeWithQuantity.class);
+        Stream<RecipeWithQuantity> streamOfTwoRecipes = Stream.of(mockedFirstRecipeWithQuantity, mockedSecondRecipeWithQuantity);
+        when(recipeWithQuantityList.stream()).thenReturn(streamOfTwoRecipes);
+
+        OrderHelperRow[] row = {
+                new OrderHelperRow("ing1", "uom1", 2.0, "recipe", "ref"),
+                new OrderHelperRow("ing1", "uom2", 2.0, "recipe", "ref"),
+                new OrderHelperRow("ing2", "uom1", 2.0, "recipe", "ref"),
+                new OrderHelperRow("ing2", "uom2", 2.0, "recipe", "ref")};
+
+        when(mockedFirstRecipeWithQuantity.multipliedOrderHelperRowStream()).thenReturn(Stream.of(row[3], row[2]));
+        when(mockedSecondRecipeWithQuantity.multipliedOrderHelperRowStream()).thenReturn(Stream.of(row[1], row[0]));
+
+        // ACT
+        Stream<OrderHelperRow> totalStream = recipePlan.streamMultipliedOrderHelperRows();
+
+        // ASSERT
+        OrderHelperRow[] orderHelperRows = totalStream.toArray(OrderHelperRow[]::new);
+        assertEquals(4, orderHelperRows.length);
+        assertEquals(row[0],orderHelperRows[0]);
+        assertEquals(row[1],orderHelperRows[1]);
+        assertEquals(row[2],orderHelperRows[2]);
+        assertEquals(row[3],orderHelperRows[3]);
+        assertNotEquals(row[0],row[3]); // just to make sure equals works
     }
 
 }
