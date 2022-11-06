@@ -17,29 +17,31 @@ public class RecipeTest {
         String title = "Zesty Lemon Chia Pudding";
         String reference = "Fiber Fueled: The Plant Based Gut Health Program";
         var listOfIngredientsWithQuantities = List.of(
-                new SimpleIngredientWithQty("almond milk, unsweetened", new Qty("cups", 1)),
-                new SimpleIngredientWithQty("lemon zest", new Qty("teaspoons", 1)),
-                new SimpleIngredientWithQty("lemon juice", new Qty("cups", .25)),
-                new SimpleIngredientWithQty("maple syrup", new Qty("tablespoons", 1.5)),
-                new SimpleIngredientWithQty("turmeric, ground", new Qty("teaspoons", .25)),
-                new SimpleIngredientWithQty("salt", new Qty("pinches", 1)),
-                new SimpleIngredientWithQty("chia seeds", new Qty("cups", .25)));
+                new iwq("almond milk, unsweetened", new Qty("cups", 1.0)),
+                new iwq("lemon zest", new Qty("teaspoons", 1)),
+                new iwq("lemon juice", new Qty("cups", .25)),
+                new iwq("maple syrup", new Qty("tablespoons", 1.5)),
+                new iwq("turmeric, ground", new Qty("teaspoons", .25)),
+                new iwq("salt", new Qty("pinches", 1)),
+                new iwq("chia seeds", new Qty("cups", .25)));
 
         Qty makes = new Qty("cups", 2);
         StorageLimits storageLimits = new StorageLimits("refrigerated", Period.ofDays(7));
-
-        // ACT
         Recipe recipe = new Recipe(title, reference, makes, listOfIngredientsWithQuantities, storageLimits);
 
+        // ACT
+        List<OrderHelperRow> rows = recipe.stream().toList();
+
         // ASSERT
-        assertEquals(title, recipe.getTitle());
-        assertEquals(reference, recipe.getReference());
+        assertEquals(7,rows.size());
+        assertEquals(title, rows.get(0).recipeName());
+        assertEquals(reference,rows.get(0).reference());
 
-        assertEquals("almond milk, unsweetened", recipe.getIngredientName(0));
-        assertEquals(new Qty("teaspoons", 1), recipe.getIngredientQty(0));
-        assertEquals("lemon zest", recipe.getIngredientName(1));
+        assertEquals("almond milk, unsweetened", rows.get(0).ingredient());
+        assertEquals("cups", rows.get(0).uom());
+        assertEquals("lemon zest", rows.get(1).ingredient());
 
-        assertEquals(makes, recipe.getMakes());
+        assertEquals(makes, recipe.getServings());
         assertEquals(storageLimits, recipe.getStorageLimits());
     }
 }

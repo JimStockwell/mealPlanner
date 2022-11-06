@@ -6,48 +6,36 @@ import java.util.stream.Stream;
 public class Recipe {
     private final String title;
     private final String reference;
-    private final Qty makes;
-    // TODO: change this to a non-generic type? Say, IngredientsWithQty?
-    private final List<SimpleIngredientWithQty> listOfIngredientsWithQuantities;
+
+    // This is Qty not Number because "2" could mean makes 2 servings, or
+    // makes 2 cups, etc.
+    private final Qty servings;
+    private final List<iwq> listOfIngredientsWithQuantities;
     private final StorageLimits storageLimits;
 
     public Recipe(String title,
                   String reference,
-                  Qty makes,
-                  List<SimpleIngredientWithQty> listOfIngredientsWithQuantities,
+                  Qty servings,
+                  List<iwq> listOfIngredientsWithQuantities,
                   StorageLimits storageLimits) {
         this.title = title;
         this.reference = reference;
-        this.makes = makes;
+        this.servings = servings;
         this.listOfIngredientsWithQuantities = List.copyOf(listOfIngredientsWithQuantities);
         this.storageLimits = storageLimits;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getReference() {
-        return reference;
-    }
-
-    public String getIngredientName(int i) {
-        return listOfIngredientsWithQuantities.get(i).getIngredient();
-    }
-
-    public Qty getMakes() {
-        return makes;
+    public Qty getServings() {
+        return servings;
     }
 
     public StorageLimits getStorageLimits() {
         return storageLimits;
     }
 
-    public Qty getIngredientQty(int i) {
-        return listOfIngredientsWithQuantities.get(i).getQty();
-    }
-
     public Stream<OrderHelperRow> stream() {
-        return null; // TODO
+        return listOfIngredientsWithQuantities.stream().map(x->new OrderHelperRow(
+                x.getIngredient(), x.getQty().uom(), x.getQty().measure(),title,
+                reference, servings));
     }
 }

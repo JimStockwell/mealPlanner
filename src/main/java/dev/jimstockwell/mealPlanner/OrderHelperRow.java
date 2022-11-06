@@ -1,3 +1,5 @@
 package dev.jimstockwell.mealPlanner;
 
-public record OrderHelperRow(String ingredient, String uom, double measure, String recipeName, String reference) {}
+public record OrderHelperRow(String ingredient, String uom, double measure,
+                             String recipeName, String reference,
+                             Qty makes) {}

@@ -18,12 +18,11 @@ public class RecipeWithQuantity {
     }
 
     public Stream<OrderHelperRow> multipliedOrderHelperRowStream() {
-        return Stream.empty(); // TODO
-//        return recipe.stream().map(x->new OrderHelperRow(x.ingredient(),
-//                                                         x.uom(),
-//                                                         x.measure()*number.doubleValue(),
-//                                                         x.recipeName(),
-//                                                         x.reference()));
-
+        return recipe.stream().map(x->new OrderHelperRow(x.ingredient(),
+        x.uom(),
+        x.measure()*number.doubleValue(),
+        x.recipeName(),
+        x.reference(),
+        x.makes()));
     }
 }

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.stubbing.OngoingStubbing;
 
 import java.util.stream.Stream;
 
@@ -26,7 +25,7 @@ class RecipeWithQuantityTest {
         double multiple = 3.0;
         when(recipe.stream()).thenReturn(
                 Stream.of(new OrderHelperRow("ing1", "uom", measure, "recipe",
-                        "ref"))
+                        "ref", new Qty("servings",4)))
         );
         when(number.doubleValue()).thenReturn(multiple);
 

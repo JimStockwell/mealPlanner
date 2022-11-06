@@ -29,7 +29,8 @@ class RecipePlanTest {
         Stream<RecipeWithQuantity> streamOfOneRecipeWithQuantity = Stream.of(mockedRecipeWithQuantity);
         when(recipeWithQuantityList.stream()).thenReturn(streamOfOneRecipeWithQuantity);
 
-        OrderHelperRow orderHelperRow = new OrderHelperRow("ing", "uom", 2.0, "recipe", "reference");
+        OrderHelperRow orderHelperRow = new OrderHelperRow("ing", "uom", 2.0,
+                "recipe", "reference", new Qty("servings",4.0));
         Stream<OrderHelperRow> streamOfOneOrderHelperRow = Stream.of(orderHelperRow);
         when(mockedRecipeWithQuantity.multipliedOrderHelperRowStream()).thenReturn(streamOfOneOrderHelperRow);
 
@@ -44,6 +45,7 @@ class RecipePlanTest {
         assertEquals(2.0, orderHelperRows[0].measure(), 0.0001);
         assertEquals("recipe", orderHelperRows[0].recipeName());
         assertEquals("reference", orderHelperRows[0].reference());
+        assertEquals(new Qty("servings",4.0), orderHelperRows[0].makes());
     }
 
     @Test
@@ -54,8 +56,8 @@ class RecipePlanTest {
         Stream<RecipeWithQuantity> streamOfTwoRecipes = Stream.of(mockedFirstRecipeWithQuantity, mockedSecondRecipeWithQuantity);
         when(recipeWithQuantityList.stream()).thenReturn(streamOfTwoRecipes);
 
-        when(mockedFirstRecipeWithQuantity.multipliedOrderHelperRowStream()).thenReturn(Stream.of(new OrderHelperRow("ing1", "uom", 2.0, "recipe", "reference")));
-        when(mockedSecondRecipeWithQuantity.multipliedOrderHelperRowStream()).thenReturn(Stream.of(new OrderHelperRow("ing2", "uom", 2.0, "recipe", "reference")));
+        when(mockedFirstRecipeWithQuantity.multipliedOrderHelperRowStream()).thenReturn(Stream.of(new OrderHelperRow("ing1", "uom", 2.0, "recipe", "reference", null)));
+        when(mockedSecondRecipeWithQuantity.multipliedOrderHelperRowStream()).thenReturn(Stream.of(new OrderHelperRow("ing2", "uom", 2.0, "recipe", "reference", null)));
 
         // ACT
         Stream<OrderHelperRow> totalStream = recipePlan.streamMultipliedOrderHelperRows();
@@ -75,10 +77,10 @@ class RecipePlanTest {
         when(recipeWithQuantityList.stream()).thenReturn(streamOfTwoRecipes);
 
         OrderHelperRow[] row = {
-                new OrderHelperRow("ing1", "uom1", 2.0, "recipe", "ref"),
-                new OrderHelperRow("ing1", "uom2", 2.0, "recipe", "ref"),
-                new OrderHelperRow("ing2", "uom1", 2.0, "recipe", "ref"),
-                new OrderHelperRow("ing2", "uom2", 2.0, "recipe", "ref")};
+                new OrderHelperRow("ing1", "uom1", 2.0, "recipe", "ref", null),
+                new OrderHelperRow("ing1", "uom2", 2.0, "recipe", "ref", null),
+                new OrderHelperRow("ing2", "uom1", 2.0, "recipe", "ref", null),
+                new OrderHelperRow("ing2", "uom2", 2.0, "recipe", "ref", null)};
 
         when(mockedFirstRecipeWithQuantity.multipliedOrderHelperRowStream()).thenReturn(Stream.of(row[3], row[2]));
         when(mockedSecondRecipeWithQuantity.multipliedOrderHelperRowStream()).thenReturn(Stream.of(row[1], row[0]));
