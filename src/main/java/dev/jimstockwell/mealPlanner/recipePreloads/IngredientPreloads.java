@@ -1,0 +1,100 @@
+package dev.jimstockwell.mealPlanner.recipePreloads;
+
+public enum IngredientPreloads {
+
+    SEAWEED_KOMBU("seaweed, kombu"),
+    CARROTS_CHOPPED("carrots, chopped"),
+    CELERY_CHOPPED("celery, chopped"),
+    SHIITAKE_DRIED("mushroom, shiitake, dried"),
+    GINGER_FRESH("ginger, fresh"),
+    NUTRITIONAL_YEAST("nutritional yeast"),
+    SOY_SAUCE("soy sauce"),
+    TURMERIC_GROUND("turmeric, ground"),
+    HEMP_SEED("hemp seed"),
+    SPINACH_LEAVES("spinach leaves"),
+    BROCCOLI_SPROUTS("broccoli sprouts"),
+    KIWI("kiwi"),
+    STRAWBERRIES("strawberries"),
+    PEANUT_BUTTER("peanut butter"),
+    BANANA_FROZEN("banana, frozen"),
+    MAPLE_SYRUP("maple syrup"),
+    TAHINI("tahini"),
+    LEMON_JUICE("lemon juice"),
+    CHICKPEAS_COOKED("chickpeas, cooked"),
+    GRAIN_COOKED("grain, cooked"),
+    VEGETABLES_ROASTED("vegetables, roasted"),
+    CASHEWS_RAW("cashews, raw"),
+    LIME_JUICE("lime juice"),
+    SRIRACHA("Sriracha"),
+    RICE_STICKY_UNCOOKED("rice, sticky, uncooked"),
+    TOASTED_SUSHI_NORI("toasted sushi nori"),
+    CUCUMBER("cucumber"),
+    MANGO_RIPE("mango, ripe"),
+    BAKED_TOFU_TERIYAKI_FLAVORED("tofu, baked, teriyaki flavored"),
+    AVOCADO_LARGE("avocado, large"),
+    SESAME_SEED("sesame seeds"),
+    BANANA_LARGE("banana, large"),
+    OATS_QUICK_COOKING("oats, quick cooking"),
+    CINNAMON_GROUND("cinnamon, ground"),
+    MILK_DAIRY_FREE_UNSWEETENED("milk, dairy free, unsweetened"),
+    WALNUT_CHOPPED("walnuts, chopped"),
+    WALNUTS("walnuts"),
+    BREAD_CRUMBS("bread crumbs"),
+    BASIL_DRIED("basil, dried"),
+    PARSLEY_DRIED("parsley_dried"),
+    BLACK_PEPPER_GROUND("black pepper, ground"),
+    PASTA_DRIED("pasta, any kind, dried"),
+    MARINARA_SAUCE("marinara sauce"),
+    CHICKPEA_MEATBALLS("meatballs, chickpea (from recipe)"),
+    PEPITA_PARMESAN("pepita 'parmesan' from recipe"),
+    BROCCOLI_FLORETS("broccoli, florets"),
+    MUSTARD_DRY("mustard, dry"),
+    CARDAMOM_GROUND("cardamom, ground"),
+
+
+    BEANS_CANNELLINI_CANNED("cannellini beans, canned"),
+    SHIITAKE_REHYDRATED("mushrooms, shiitake, rehydrated"),
+    SPINACH_BABY_CHOPPED("spinach, baby, chopped"),
+    TOFU_FIRM_CUBED("tofu, firm, cubed"),
+    TOMATO_SAUCE("tomato sauce"),
+    TOMATOES_DICED_CANNED("tomato, diced, canned"),
+    VINEGAR_APPLE_CIDER("vinegar, apple cider"),
+    BEANS_BLACK_CANNED("black beans, canned"),
+    BEANS_KIDNEY_CANNED("kidney beans, canned"),
+    BEANS_PINTO_CANNED("pinto beans, canned"),
+    FLAXSEED_GROUND("flaxseed, ground"),
+    FLOUR_GLUTEN_FREE("flour, gluten-free"),
+    GARLIC("garlic"),
+    MISO_PASTE_WHITE("miso paste, white"),
+    NOODLES_SOBA("noodles, soba"),
+    OIL_OLIVE("oil, olive"),
+    OIL_SUNFLOWER("oil, sunflower"),
+    ONION_WHITE_OR_YELLOW("onion, white or yellow"),
+    OREGANO_DRIED("oregano, dried"),
+    PEPPER_BELL_YELLOW("pepper, bell, yellow"),
+    SCALLIONS_CHOPPED("scallions, chopped"),
+    SEAWEED_WAKAME("seaweed, wakame"),
+
+    BAKING_SODA("baking soda"),
+    BIOME_BROTH("Biome Broth"),
+    BROTH_VEGETABLE("broth, vegetable"),
+    CHILI_POWDER("chili powder"),
+    CUMIN_GROUND("cumin, ground"),
+    EXTRACT_VANILLA("extract, vanilla"),
+    BAKING_POWDER("baking powder"),
+    ALMOND_MILK_UNSWEETENED("milk, almond, unsweetened"),
+    SALT("salt"),
+    NUTMEG_GROUND("nutmeg, ground"),
+    CHAI_TEA_BAG("tea, chai, bagged"),
+    BANANA("banana"), OATS_ROLLED("oats, rolled"), CHIA_SEED("seeds, chia");
+
+    private final String displayName;
+    IngredientPreloads(String displayName) {
+        this.displayName = displayName;
+    }
+
+    @Override
+    public String toString() {
+        return displayName;
+    }
+}
