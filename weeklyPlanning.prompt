@@ -1,0 +1,109 @@
+Weekly planning
+
+Let’s plan six days worth of food, developing recipes.
+
+We will use the A ledger and B ledger for describing macro limits.
+
+Dish A Ledger – Protein Base
+
+Metric	Value	Rule
+kcal_exact	300 kcal	exact
+protein_min	28 g	≥
+net_carbs_max	11 g	≤
+fiber_min	8 g	≥
+sat_fat_max	2.0 g	≤
+
+Dish B Ledger – Veg / Fiber Side
+
+Metric	Value	Rule
+kcal_exact	150 kcal	exact
+protein_min	2 g	≥
+net_carbs_max	4 g	≤
+fiber_min	2 g	≥
+sat_fat_max	1.0 g	≤
+
+Use low saturated fat ingredients throughout.
+
+🧩 Ledger Guardrails
+
+Before proposing or scaling any A or B recipe, validate ingredient plausibility against the ledger rules.
+	•	For every finalized recipe, confirm that the total macros meet ledger targets within ± 5 %.
+	•  Strict requirement: In B dishes, avoid starchy vegetables and legumes. Fruit too.
+	•  In A dishes, legumes are welcome and encouraged, but only as a supporting protein, not as the primary protein. But note they help a lot with the high fiber target of A ledger.
+	•  In A dishes, fruit and starchy vegetables are welcome ONLY IF they bring a lot of flavor, since they will need to be used in moderation.
+
+⸻
+
+⚙️ Structural Rules
+	•	A-ledger recipes: 10 servings each, providing food for 2 days.
+	•	B-ledger recipes: 5 servings each, providing food for 1 day.
+	•	A dishes reflect a weekly theme; B dishes only need to complement it.
+	•	All dishes must be refrigerator-stable and portionable from one container.
+	•	Preferred proteins: chicken thighs, ground turkey, fish, shrimp.
+	•	No proposed dish may require unrealistic ingredient scaling to meet its macros. This has been a problem with fiber additives in the past.
+	•	For each dish, estimate the largest plausible portion of its main ingredient that fits within its ledger before writing the recipe.
+	•	Note that B-ledger recipes can often get all their fiber from about 2/3 cup of cooked low carb vegetables. Ledger A from 1/3 cup legumes plus fiber supplements.
+
+———
+
+Unusual Ingredients on hand that may help:
+
+* Shirataki noodles, Inulin powder, psyllium husk powder, oat fiber, flax seed meal, chia seeds,
+* whey isolate, hemp seeds, collagen powder 
+* Swerve (granulated), stevia extract,
+* Almond flour
+
+———
+
+Typical recipes for fish are much too mild and subtle for my wife. Fish recipes should have some serious flavor punch to them too win her approval.
+
+———
+
+🪶 Process Flow
+	1.	Prompt for Theme
+(“What theme are you planning on?”). No suggestions necessary.
+
+	2.	High-Level Development
+
+At the concept proposal stage:
+• Cross-check each proposed dish against its ledger's guardrails.
+
+Propose 3 A dishes (A1–A3) and 6 B dishes (B1–B6) maximizing variety within ledger and guardrail limits.
+
+favor 2–3-day refrigeration quality in choosing the recipes.
+
+Next, ask me whether I want to more carefully validate these ideas against the ledger guard rails and reasonableness, updating the proposals and repeating this question to me if any turn out to need replacing.
+
+	3.	Detailed Recipe Development
+Write each full recipe, ensuring ledger plausibility and alignment with my wife’s flavor and texture preferences.
+
+Speaking of reasonableness, keep in mind the fiber to liquid ratio and whether the fiber will create an undesirable texture and whether it will mask the flavor in the recipe.
+
+	4.	Feasibility Review
+Generate a table of combined identities and macros per 100g from good sources. Use this table for consistency in all further work. Particularly, to keep future solver work and future “double check the macro totals” questions consistent.
+
+Double-check that ingredients fit within ledger limits at realistic portions. Replace or revise any that do not.
+
+	5.	Solver Phase
+This phase is importantly, because prior to now, we’ve been making reasonable estimates. But now we’re really going to dial it in with precision.
+
+Starting with A1 and progressing to B6, step through the recipes one at a time, using a solver to tune ingredient weights to exact ledger targets, staying within reasonable ingredient ranges, and discussing with me after each recipe is run through the solver. We do NOT need to respect the sat fat requirement at this stage. That requirement, earlier, was just to get us into the broad ballpark and to use healthy ingredients.
+
+The inequalities (e.g., protein) must be strictly adhered to, yet with a goal of minimizing protein, maximizing net carbs, and minimizing fiber. Kcal must be within plus or minus 5% of the target.
+
+Before moving on to the next recipe, be sure 1) I have bought off on the solve AND 2) we have discussed 
+the result from a culinary and cooking-mechanics perspective.
+
+Remember, 10 servings per A, and 5 servings per B.
+
+	6.	Marketing Lists phase
+Be careful and attentive not to move on to this step until we have carefully verified the macros, with precision, for each recipe.
+
+Group the recipes into three groups. Perhaps A1 + B1–B2, A2 + B3–B4, A3 + B5–B6.  But if you can think of a better arrangement of Bs to As, let’s use your idea. Also, let’s sequence the three groups in an order that maximizes variety.
+
+Remember, 10 servings per A, and 5 servings per B.
+
+List that grouping for reference, then make three grocery lists, one for each of the three groupings. 
+
+When bottled lime juice is a viable substitute for fresh limes,  show that explicitly in shipping lists. Same for frozen vegetables when they are an acceptable alternate to fresh.
+
