@@ -11,7 +11,6 @@ kcal_exact	300 kcal	exact
 protein_min	28 g	≥
 net_carbs_max	11 g	≤
 fiber_min	8 g	≥
-sat_fat_max	2.0 g	≤
 
 Dish B Ledger – Veg / Fiber Side
 
@@ -20,9 +19,6 @@ kcal_exact	150 kcal	exact
 protein_min	2 g	≥
 net_carbs_max	4 g	≤
 fiber_min	2 g	≥
-sat_fat_max	1.0 g	≤
-
-Use low saturated fat ingredients throughout.
 
 🧩 Ledger Guardrails
 
@@ -39,16 +35,17 @@ Before proposing or scaling any A or B recipe, validate ingredient plausibility 
 	•	B-ledger recipes: 5 servings each, providing food for 1 day.
 	•	A dishes reflect a weekly theme; B dishes only need to complement it.
 	•	All dishes must be refrigerator-stable and portionable from one container.
-	•	Preferred proteins: chicken thighs, ground turkey, fish, shrimp.
+	•	Prefer healthy fats.
 	•	No proposed dish may require unrealistic ingredient scaling to meet its macros. This has been a problem with fiber additives in the past.
 	•	For each dish, estimate the largest plausible portion of its main ingredient that fits within its ledger before writing the recipe.
 	•	Note that B-ledger recipes can often get all their fiber from about 2/3 cup of cooked low carb vegetables. Ledger A from 1/3 cup legumes plus fiber supplements.
+	•	Do not limit yourself to these protein sources necessarily, but they are some that work well for me: chicken thighs, ground turkey, fish, shrimp.
 
 ———
 
 Unusual Ingredients on hand that may help:
 
-* Shirataki noodles, Inulin powder, psyllium husk powder, oat fiber, flax seed meal, chia seeds,
+* Shirataki noodles, Inulin powder, psyllium husk powder, oat fiber, flax seed meal, chia seeds, guar gum
 * whey isolate, hemp seeds, collagen powder 
 * Swerve (granulated), stevia extract,
 * Almond flour
@@ -87,7 +84,7 @@ Double-check that ingredients fit within ledger limits at realistic portions. Re
 	5.	Solver Phase
 This phase is importantly, because prior to now, we’ve been making reasonable estimates. But now we’re really going to dial it in with precision.
 
-Starting with A1 and progressing to B6, step through the recipes one at a time, using a solver to tune ingredient weights to exact ledger targets, staying within reasonable ingredient ranges, and discussing with me after each recipe is run through the solver. We do NOT need to respect the sat fat requirement at this stage. That requirement, earlier, was just to get us into the broad ballpark and to use healthy ingredients.
+Starting with A1 and progressing to B6, step through the recipes one at a time, using a solver to tune ingredient weights to exact ledger targets, staying within reasonable ingredient ranges, and discussing with me after each recipe is run through the solver.
 
 The inequalities (e.g., protein) must be strictly adhered to, yet with a goal of minimizing protein, maximizing net carbs, and minimizing fiber. Kcal must be within plus or minus 5% of the target.
 
