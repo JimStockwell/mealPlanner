@@ -1,0 +1,89 @@
+Weekly planning
+
+Let’s plan six days worth of food, developing recipes.
+
+We will use these macro limits.
+
+Metric	Value	Rule
+kcal_exact	450 kcal	exact
+protein_min	30 g	≥
+net_carbs_max	15 g	≤
+fiber_min	10 g	≥
+
+🧩 Recipe Guardrails
+
+Before proposing or scaling any recipe, validate ingredient plausibility against these rules.
+	•  For every finalized recipe, confirm that the total macros meet targets within ± 5 %.
+	•  Fiber should come principally from legumes or other high fiber whole foods, as they are tastier than fiber additives.
+	•  Fiber additives can be used to improve texture, or to provide fiber if it can be done with very low risk of harming the texture of the dish.
+⸻
+
+⚙️ Structural Rules
+	•	5 servings.
+	•	Single recipe full dinner.
+	• Six recipies will be made over six days of the week. They should have nice variety.
+	•	All dishes must be refrigerator-stable and portionable from one container.
+	•	Prefer healthy fats.
+	•	No proposed dish may require unrealistic ingredient scaling to meet its macros.
+	•	Do not limit yourself to these protein sources necessarily, but they are some that work well for me: chicken thighs, ground turkey, fish, shrimp.
+
+———
+
+Unusual Ingredients on hand that may help:
+
+* Shirataki noodles, Inulin powder, psyllium husk powder, oat fiber, flax seed meal, chia seeds, guar gum
+* whey isolate, hemp seeds, collagen powder 
+* Swerve (granulated), stevia extract,
+* Almond flour
+
+———
+
+Typical recipes for fish are much too mild and subtle for my wife. Fish recipes should have some serious flavor punch to them too win her approval.
+
+———
+
+🪶 Process Flow
+	1.	Prompt for Theme
+(“What theme are you planning on?”). No suggestions necessary.
+
+	2.	High-Level Development
+
+At the concept proposal stage:
+• Cross-check each proposed dish against its recipe guardrails.
+
+Propose six dishes maximizing variety within allowed limits.
+
+Favor 2–3-day refrigeration quality in choosing the recipes.
+
+Next, prompt me (and you) to more carefully validate these ideas against the recipe guard rails and reasonableness, updating the proposals and repeating this prompt to me if any turn out to need replacing.
+
+	3.	Detailed Recipe Development
+Write each full recipe, ensuring gaurdrail plausibility and alignment with my wife’s flavor and texture preferences.
+
+Speaking of reasonableness, keep in mind the fiber to liquid ratio and whether the fiber will create an undesirable texture and whether it will mask the flavor in the recipe.
+
+	4.	Feasibility Review
+Generate a table of combined identities and macros per 100g from good sources. Use this table for consistency in all further work. Particularly, to keep future solver work and future “double check the macro totals” questions consistent.
+
+Double-check that ingredients fit within gaurdrail limits at realistic portions. Replace or revise any that do not.
+
+	5.	Solver Phase
+This phase is importantly, because prior to now, we’ve been making reasonable estimates. But now we’re really going to dial it in with precision.
+
+Starting with recipe 1 and progressing to recipe 6, step through the recipes one at a time, using a solver to tune ingredient weights to exact recipe targets, staying within reasonable ingredient ranges, and discussing with me after each recipe is run through the solver.
+
+The inequalities (e.g., protein) must be strictly adhered to, yet with a goal of minimizing protein, maximizing net carbs, and minimizing fiber. Kcal must be within plus or minus 5% of the target.
+
+Before moving on to the next recipe, be sure 1) I have bought off on the solve AND 2) we have discussed 
+the result from a culinary and cooking-mechanics perspective.
+
+Remember, 5 servings per recipe.
+
+	6.	Marketing Lists phase
+Be careful and attentive not to move on to this step until we have carefully verified the macros, with precision, for each recipe.
+
+Remember, 5 servings per recipe.
+
+List the recipe name and ingedients.
+
+When bottled lime juice is a viable substitute for fresh limes,  show that explicitly in shipping lists. Same for frozen vegetables when they are an acceptable alternate to fresh.
