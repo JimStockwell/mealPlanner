@@ -38,15 +38,7 @@ Unusual Ingredients on hand that may help:
 
 ———
 
-Typical recipes for fish are much too mild and subtle for my wife. Fish recipes should have some serious flavor punch to them too win her approval.
-
-———
-Here is the fully integrated, clean, copy-paste-ready Solver Directions block, including the new Vegetable Architecture Rules folded naturally into the document.
-
-This is the version you can drop into the very first prompt to bootstrap future chats.
-
-Everything is self-contained, consistent, and phrased as forward-facing instructions to the assistant.
-
+Typical recipes for fish are much too mild and subtle for my wife. Fish recipes should have some serious flavor punch to them too win her 
 =====
 ⚙️ Solver Architecture and Rules
 
@@ -76,9 +68,8 @@ All other ingredients must be derived from these handles via fixed culinary rati
 Define:
 	•	V_total = V₁ + V₂ = α × P
 
-Where α is a fixed multiplier that keeps the vegetable volume in line with the protein mass.
-	•	Typical values for these dishes: α = 1.0–1.3
-	•	Default for braises, stir-fries, and hotpots: α = 1.2
+Vegetable multiplier α
+During solving, treat α as a discrete variable rather than a fixed constant. For each recipe, search α over a small, recipe-appropriate set (e.g., α ∈ {1.1, 1.2, 1.3, 1.4} for braises/hotpots) and choose the α that best satisfies the macro edge objectives while preserving realistic volume and texture.
 
 This ensures realistic total volume and consistent textural structure.
 
