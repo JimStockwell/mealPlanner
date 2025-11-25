@@ -41,6 +41,147 @@ Unusual Ingredients on hand that may help:
 Typical recipes for fish are much too mild and subtle for my wife. Fish recipes should have some serious flavor punch to them too win her approval.
 
 ———
+Here is the fully integrated, clean, copy-paste-ready Solver Directions block, including the new Vegetable Architecture Rules folded naturally into the document.
+
+This is the version you can drop into the very first prompt to bootstrap future chats.
+
+Everything is self-contained, consistent, and phrased as forward-facing instructions to the assistant.
+
+=====
+⚙️ Solver Architecture and Rules
+
+During the solver phase (Step 5), use the following framework to determine exact ingredient quantities for each recipe.
+
+⸻
+
+1. Control Handles (the only true solver variables)
+
+Each recipe is defined using exactly these adjustable handles:
+	•	P — Protein mass (e.g., raw ground turkey, raw chicken thighs, raw shrimp, etc.)
+	•	V₁ — Primary low-carb vegetable (bulk volume + moderate fiber)
+	•	V₂ — Secondary higher-carb vegetable (aromatics + carb-budget lever)
+	•	F — Added healthy fat source (e.g., sesame oil, olive oil)
+	•	L — Legume or fiber engine (e.g., dry red lentils, cooked black soybeans)
+
+These are the only free variables the solver can choose.
+
+All other ingredients must be derived from these handles via fixed culinary ratios.
+
+⸻
+
+2. Vegetable Architecture Rules
+
+2.1 Total Vegetable Mass Linked to Protein
+
+Define:
+	•	V_total = V₁ + V₂ = α × P
+
+Where α is a fixed multiplier that keeps the vegetable volume in line with the protein mass.
+	•	Typical values for these dishes: α = 1.0–1.3
+	•	Default for braises, stir-fries, and hotpots: α = 1.2
+
+This ensures realistic total volume and consistent textural structure.
+
+2.2 Ratio and Feasibility Bounds
+
+To prevent pathological vegetable allocations:
+	•	V₁ ≥ 0.6 × V_total
+	•	V₂ ≤ 0.4 × V_total
+	•	V₂ ≥ 0 g
+	•	V₁ ≥ 500 g (minimum to maintain bulk integrity)
+	•	V₂ ≤ 200 g (carb realism + flavor balance)
+
+Within these constraints, the solver allocates V₁ and V₂ based on macro pressures.
+
+⸻
+
+3. All Other Ingredients Must Be Derived from Fixed Culinary Ratios
+
+Every ingredient that is not P, V₁, V₂, F, or L must be calculated using fixed ratios or fixed linear combinations of the handles.
+
+Ratios are chosen on culinary first principles, not on macro convenience.
+
+Example ratio set (illustrative, but typical):
+	•	Miso = 0.09 × P
+	•	Rice vinegar = 0.5 × miso
+	•	Soy sauce = 0.33 × miso
+	•	Garlic = 0.015 × (P + V₁)
+	•	Ginger = 0.02 × (P + V₁)
+	•	Scallions = 0.06 × V₁
+	•	Broth = 0.5 × V₁
+	•	Sesame seeds = 0.02 × (P + L)
+	•	Chia = 0.025 × L
+
+These ensure flavor integrity and realistic scaling.
+
+The solver modifies only the handles — the aromatic architecture remains coherent.
+
+⸻
+
+4. Macro Constraints (Per Serving)
+
+After dividing the full recipe by 5 servings:
+	•	kcal: 450 ± 5%
+	•	protein: ≥ 30 g
+	•	net carbs: ≤ 15 g
+	•	fiber: ≥ 10 g
+
+Solver must evaluate all macros using the canonical per-100 g identity table defined in Step 4.
+
+⸻
+
+5. Solver Objective Priorities
+
+Within the feasible macro region:
+	1.	Achieve kcal closest to the target (450 ± 5%).
+	2.	Hit protein ≥ 30 g while minimizing protein excess.
+	3.	Hit fiber ≥ 10 g while staying near the minimum.
+	4.	Hit net carbs ≤ 15 g while staying close to the ceiling.
+	5.	Maintain realism of ingredient ranges (no distortions).
+
+The solver should push right up against the inequality boundaries, not sit comfortably inside them.
+
+⸻
+
+6. Solver Implementation Requirements
+	•	Use a Python solver (grid search, linear programming, or explicit constrained search).
+	•	Do not approximate macros in your head.
+	•	All solver math must use the canonical per-100 g macro identity table.
+	•	After solving, round ingredient values for kitchen practicality, then recompute macros exactly.
+
+⸻
+
+7. Reporting & Deviations
+
+If no solution exists that hits the edges precisely, the assistant must:
+	•	Explain which constraint is binding
+	•	Why the deviation occurs
+	•	What structural change (if any) would allow perfect edge-matching
+	•	Whether the deviation is culinary or macro-driven
+
+Example: “Protein cannot be reduced below 39 g without violating the kcal or carb constraints.”
+
+⸻
+
+8. Post-Solve Culinary Feasibility Review
+
+After each recipe solve:
+	•	Assess texture accuracy (liquid-to-fiber ratio, lentil behavior, cabbage softening, sesame oil balance)
+	•	Validate refrigerator stability (4–5 days)
+	•	Confirm flavor alignment with the theme
+	•	Wait for user approval before moving to the next recipe
+
+⸻
+
+9. Summary
+	•	Solver variables: P, V₁, V₂, F, L
+	•	Vegetable mass linked to protein: V_total = α × P
+	•	All aromatics and liquid components: fixed culinary ratios
+	•	Solver must meet hard macro constraints and edge-hug the inequalities
+	•	Final steps: macro validation → cooking mechanics → user approval → next recipe
+
+=====
+
 
 🪶 Process Flow
 	1.	Prompt for Theme
